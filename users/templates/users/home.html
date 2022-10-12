@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-WASTE MANAGEMENT SYSTEM</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+    body {
+      margin: 0;
+      box-sizing: border-box;
+      background-color:#e2ddd9;
+    }
+
+    /* CSS for header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+     background-color:#e2ddd9;
+    }
+
+    .header .logo {
+      font-size: 25px;
+      font-family: 'Sriracha', cursive;
+      color: #000;
+      text-decoration: none;
+       background-color:#e2ddd9;
+    margin-left: 30px;
+    }
+
+    .nav-items {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #e2ddd9;
+      margin-right: 20px;
+       background-color:#a3c68c;
+    }
+
+    .nav-items a {
+      text-decoration: none;
+      color: #000;
+      padding: 35px 20px;
+       background-color:#e2ddd9;
+    }
+
+    /* CSS for main element */
+    .intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 520px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .intro h1 {
+      font-family: sans-serif;
+      font-size: 60px;
+      color: #fff;
+      font-weight: bold;
+
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .intro p {
+      font-size: 20px;
+      color: #d1d1d1;
+      text-transform: uppercase;
+      margin: 20px 0;
+    }
+
+    .intro button {
+      background-color: #5edaf0;
+      color: #000;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
+    }
+
+    .achievements {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 80px;
+    }
+
+    .achievements .work {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .achievements .work i {
+      width: fit-content;
+      font-size: 50px;
+      color: #333333;
+      border-radius: 50%;
+      border: 2px solid #333333;
+      padding: 12px;
+    }
+
+    .achievements .work .work-heading {
+      font-size: 20px;
+      color: #333333;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .achievements .work .work-text {
+      font-size: 15px;
+      color: #585858;
+
+      margin: 10px 0;
+    }
+
+    .about-me {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 40px 80px;
+      border-top: 2px solid #eeeeee;
+    }
+
+    .about-me img {
+      width: 500px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .about-me-text h2 {
+      font-size: 30px;
+      color: #333333;
+       background-color:#a3c68c;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .about-me-text p {
+      font-size: 15px;
+       background-color:#a3c68c;
+      color: #585858;
+      margin: 10px 0;
+    }
+
+    /* CSS for footer */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color:gray;
+      padding: 40px 80px;
+    }
+
+    .footer .copy {
+      color: #fff;
+    }
+
+    .bottom-links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 0;
+    }
+
+    .bottom-links .links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .bottom-links .links span {
+      font-size: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .bottom-links .links a {
+      text-decoration: none;
+      color: #a1a1a1;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <a href="#" class="logo">WELCOME to e-TAKA</a>
+    <nav class="nav-items">
+
+
+       <a href="{% url 'user-product' %}">Generate E-Waste</a>
+       <a href="{% url 'user-order' %}">Recycle E-Waste</a>
+       <a href="{% url 'logout' %}">Logout</a>
+
+    </nav>
+  </header>
+  <main>
+    <div class="intro">
+      <h1>AN E-WASTE MANAGEMENT SYSTEM</h1>
+      <p>When you refuse to reuse , it is the earth you abuse.</p>
+
+      <a href="{% url 'user-product' %}">
+      <button style="background-color: #a3c68c">Get Started</button>
+
+    </div>
+    <div class="achievements">
+      <div class="work">
+        <i class="fas fa-laptop"></i>
+        <p class="work-heading">Laptops</p>
+        <p class="work-text">The materials utilized and the construction of the laptop both require a lot of energy to produce. The primary components of laptops are metal and plastic. </p>.
+      <div class="work">
+        <i class="fas fa-phone"></i>
+        <p class="work-heading">Phones</p>
+        <p class="work-text">Smartphones also contribute to approximately 10% of global e-waste</p>
+      </div>
+      <div class="work">
+        <i class="fas fa-desktop"></i>
+        <p class="work-heading">Televisions</p>
+        <p class="work-text"> Televisions possess a lot of harm to the environment when disposed</p>
+      </div>
+    </div>
+    <div class="about-me">
+      <div class="about-me-text">
+
+
+      </div>
+      <img src="https://images.unsplash.com/photo-1550041473-d296a3a8a18a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1527&q=80" alt="me">
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="copy">&copy; ALIALI-2022</div>
+    <div class="bottom-links">
+      <div class="links">
+        <span>Contact Us</span>
+        <a href="#"><i class="fas fa-phone">+254 759299886</i></a>
+        <a href="#"><i class="fas fa-envelope">ali.fatma@strathmore.edu</i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

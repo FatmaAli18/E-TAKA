@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-4 mt-4">
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                Information
+            </div>
+            <div class="card-body">
+                <marquee behavior="" direction="">
+                    <h3 class="my-4">Latest Updates</h3>
+                </marquee>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 mt-4">
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                Dashboard Statistics
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a class="text-decoration-none text-dark" href="{% url 'dashboard-staff' %}">
+                            <div class="card my-card shadow ">
+                                <div class="card-body text-center">
+                                    <h4>Staff <i class="fas fa-users"></i></h4>
+                                    <h3>{{generators_count}}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a class="text-decoration-none text-dark" href="{% url 'dashboard-product' %}">
+                            <div class="card my-card shadow">
+                                <div class="card-body text-center ">
+                                    <h4> Products <i class="fas fa-box"></i></h4>
+                                    <h3>{{ products_count }}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="text-decoration-none text-dark" href="{% url 'user-order' %}">
+                            <div class="card my-card shadow">
+                                <div class="card-body text-center ">
+                                    <h4>Orders <i class="fas fa-shipping-fast"></i></h4>
+                                    <h3>{{ orders_count }}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
