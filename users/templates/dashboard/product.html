@@ -21,7 +21,7 @@
 
                     <h4>Add Products</h4>
                     <hr>
-                    <form method="POST">
+                    <form method="POST" enctype="multipart/form-data">
                          {% csrf_token %}
                         {{ form|crispy }}
 
@@ -38,6 +38,7 @@
                             <th scope="col">Product Type</th>
                             <th scope="col">Category</th>
                             <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
                              <th scope="col">Image</th>
                             <th scope="col">Activity</th>
 
@@ -54,7 +55,8 @@
                             <td>{{item.name}}</td>
                             <td>{{item.category}}</td>
                             <td>{{item.quantity}}</td>
-                            <td>{{item.image}}</td>
+                            <td>{{item.price}}</td>
+                            <td><a href={{item.imageURL}}>view</a></td>
 
                            <td>
                                 <a class="btn btn-info btn-sm" href="{% url 'dashboard-product-update' item.id %}">Edit</a>

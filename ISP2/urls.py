@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from users import views as user_views
-
+from mpesa.urls import mpesa_urls
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -39,4 +39,7 @@ urlpatterns = [
                   path('profile/update/', user_views.profile_update, name='user-profile-update'),
                   path('logout/', auth_views.LogoutView.as_view(template_name='user/logout.html'),
                        name='user-logout'),
+                  
+                path('mpesa/', include(mpesa_urls)),
+
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

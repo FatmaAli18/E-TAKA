@@ -29,7 +29,7 @@ class ProfileUpdateForm(forms.ModelForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['name', 'category', 'quantity', 'image']
+        fields = ['name', 'category', 'quantity','price', 'image']
 
 
 class OrderForm(forms.ModelForm):

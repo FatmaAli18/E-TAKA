@@ -1,13 +1,64 @@
 {% extends 'partials/base.html'%}
-{%block title%}Order Page{%endblock%}
+{% load static %}
+{%block title%}Products Page{%endblock%}
 {% load crispy_forms_tags %}
 {%block content%}
 
 
 
 <!--Table-->
+<style>
+    .table-image {
+        td, th {
+          vertical-align: middle;
+        }
+      }
+</style>
    <div class="container">
-        <div class="row my-4">
+        <div class="row my-4 mx-md-n5">
+            <div class="col-md-8">
+                <table class="table bg-white">
+                    
+                    <thead class="bg-success">
+                        <tr class="text-white">
+
+                            <th scope="col">Product</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {%for product in products %}
+                        <tr>
+                            <td>{{product.name}}</td>
+                            <td>{{product.category}}</td>
+                            <td>{{product.quantity}}</td>
+                            <td>{{product.price}}</td>
+                            <td class="w-25">
+                                <img src="{{product.imageURL}}" class="img-fluid img-thumbnail" alt="Product">
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                <div class="text-center container mt-5">
+                    {% if products.has_previous %}
+                    <a href="?page={{products.previous_page_number}}"><button type="button" class="btn btn-light">previous</button></a>
+                    {% endif %}
+                  
+                    <a><button type="button" class="btn btn-success">{{products.number}}</button></a>
+                  
+                    {% if products.has_next %}
+                    <a href="?page={{ products.next_page_number }}"><button type="button" class="btn btn-light">next</button></a>
+                    {% endif %}
+                  
+                </div>
+            
+                
+            </div>
             <div class="col-md-4">
                 {% for message in messages %}
                 {% if message %}
@@ -32,39 +83,11 @@
             </div>
 
             </div>
-            <div class="col-md-8">
-                <table class="table bg-white">
-                    <thead class="bg-success">
-                        <tr class="text-white">
-
-                            <th scope="col">Product</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Order by</th>
-                            <th scope="col">Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {%for orders in orders %}
-                        <tr>
-                            <td>{{orders.name}}</td>
-                            <td>{{orders.name.category}}</td>
-                            <td>{{orders.order_quantity}}</td>
-                            <td>
-                              {{orders.staff.username}}
-                            </td>
-                             <td>
-                              {{orders.date}}
-                            </td>
-                        </tr>
-                    {% endfor %}
-
-                    </tbody>
-                </table>
-            </div>
+        
         </div>
 
     </div>
+
 
 
 

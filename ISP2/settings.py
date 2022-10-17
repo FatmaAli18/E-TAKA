@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os.path
 from pathlib import Path
+from threading import local
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
     'crispy_forms',
+    'rest_framework',
+    'mpesa'
 
 ]
 
@@ -49,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+DEFAULT_AUTO_FIELD='django.db.models.BigAutoField'
 
 ROOT_URLCONF = 'ISP2.urls'
 
@@ -131,5 +136,20 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGIN_URL = 'user-login'
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+
+
+# Mpesa configurations
+MPESA_CONFIG = {
+    'CONSUMER_KEY': 'G9rYdGAQNPAW8pSQIeLlOTGGGAAQGAR6',
+    'CONSUMER_SECRET': 'a1BoDCNHKs5z3AAT',
+    'CERTIFICATE_FILE': None,
+    'HOST_NAME': 'https://558d-41-90-187-109.ngrok.io',
+    'PASS_KEY': 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919',
+    'SAFARICOM_API': 'https://sandbox.safaricom.co.ke/',
+    'AUTH_URL': '/oauth/v1/generate?grant_type=client_credentials',
+    'SHORT_CODE': '174379',
+    'TILL_NUMBER': None,
+}

@@ -6,12 +6,47 @@
 
     <div class="container">
         <div class="row my-4">
+                <div class="col-md-8">
+                    <table class="table bg-white">
+                        <thead class="bg-success">
+                            <tr class="text-white">
+        
+                                <th scope="col">Product</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {%for orders in orders %}
+                            <tr>
+                                <td>{{orders.name.name}}</td>
+                                <td>{{orders.name.category}}</td>
+                                <td>{{orders.order_quantity}}</td>
+                                 <td>{{orders.date}}</td>
+                            </tr>
+                        {% endfor %}
+        
+                        </tbody>
+                    </table>
+        
+                    <div class="text-center container mt-5">
+                        {% if orders.has_previous %}
+                        <a href="?page={{orders.previous_page_number}}"><button type="button" class="btn btn-light">previous</button></a>
+                        {% endif %}
+                      
+                        <a><button type="button" class="btn btn-success">{{orders.number}}</button></a>
+                      
+                        {% if orders.has_next %}
+                        <a href="?page={{ orders.next_page_number }}"><button type="button" class="btn btn-light">next</button></a>
+                        {% endif %}
+                      
+                    </div>
+                </div>
             <div class="col-md-4">
-            </div>
-            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header bg-info text-white">
-                        Profile Page
+                        Personal Info
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -48,8 +83,6 @@
                     </div>
                 </div>
             </div>
-
-        </div>
 
     </div>
 
