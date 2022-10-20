@@ -136,7 +136,7 @@ def order(request):
     product_count = Product.objects.all().count()
     total = sum([i.name.price * i.order_quantity  for i in orders])
     
-    products = Product.objects.all()
+    products = Product.objects.filter(quantity__gte=1)
     paginator = Paginator(products, 6)
     page_number = request.GET.get('page', 1)
     products = paginator.get_page(page_number)
@@ -157,8 +157,10 @@ def order(request):
             print(amount)
             mpesa = requests.post("http://127.0.0.1:8000/mpesa/submit/", data={"phone_number": phone_number,"amount": amount})  
             messages.success(request, "Check Your Phone and Input your Mpesa PIN to make payment.")
-
             order.save()
+            product = Product.objects.get(id=order.name.id)
+            product.quantity =  product.quantity - order.order_quantity
+            product.save()
 
     else:
         form = OrderForm()
