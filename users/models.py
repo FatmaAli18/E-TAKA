@@ -51,10 +51,16 @@ class Meta:
 
 
 class Order(models.Model):
+    
+    delivery_status = (
+        ('Delivered', 'Delivered'),
+        ('Pending', 'Pending'),
+    )
     id = models.AutoField(primary_key=True)
     name = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
     staff = models.ForeignKey(User, models.CASCADE, null=True)
     order_quantity = models.PositiveIntegerField(null=True)
+    status = models.CharField(max_length=254, choices=delivery_status, default='Pending')
     date = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):

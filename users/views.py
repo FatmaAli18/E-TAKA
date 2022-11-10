@@ -176,6 +176,17 @@ def order(request):
 
     return render(request, 'dashboard/order.html', context)
 
+def confirm_order(request, pk):
+    order = Order.objects.filter(id=pk)
+    order.status = 'Delivered'
+    
+    for item in order:
+        item.status = 'Delivered'
+        item.save()
+        messages.success(request, "Order Updated Successfully")
+        
+    return redirect('user-profile')
+
 
 def register(request):
     if request.method == 'POST':

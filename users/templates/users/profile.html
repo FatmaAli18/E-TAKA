@@ -15,6 +15,7 @@
                                 <th scope="col">Category</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Date</th>
+                                <th scope="col">Delivery Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -24,7 +25,19 @@
                                 <td>{{orders.name.category}}</td>
                                 <td>{{orders.order_quantity}}</td>
                                  <td>{{orders.date}}</td>
-                            </tr>
+
+                                 {% if orders.status == "Pending" %}
+                                 <td>
+                                    <a href="{% url 'confirm-order' orders.id %}">
+                                 <button type="button" class="btn btn-primary">Confirm Delivery</button>
+                                 </a>
+                                 </td>
+                                 {% else %}
+                                 <td>
+                                 <button type="button" class="btn btn-success">Delivered</button>
+                                 </td>
+                                 {% endif %}
+                                </tr>
                         {% endfor %}
         
                         </tbody>
