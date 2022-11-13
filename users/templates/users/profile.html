@@ -64,9 +64,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-8">
-                                <span class="h4"> Profile Information</span> <a class="btn btn-info btn-sm float-right"
-                                    href="{%url 'user-profile-update'%}">Edit</a>
-                                <hr>
+                                <span class="h4"> Profile Information</span> 
                                 <table class="table bg-white table-borderless">
                                     <tbody>
                                         <tr>
@@ -81,12 +79,24 @@
                                             <th scope="row">Phone</th>
                                             <td>{{user.profile.phone}}</td>
                                         </tr>
+                            
                                         <tr>
                                             <th scope="row">Address</th>
                                             <td>{{user.profile.address}}</td>
                                         </tr>
+                                        <tr>
+                                            <th scope="row">Location</th>
+                                            <td>{{user.profile.location}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Building</th>
+                                            <td>{{user.profile.building}}</td>
+                                        </tr>
+                                        
                                     </tbody>
                                 </table>
+                                <a class="btn btn-info btn-sm float-right"
+                                    href="{%url 'user-profile-update'%}">Edit</a>
 
                             </div>
                             <div class="col-md-4">

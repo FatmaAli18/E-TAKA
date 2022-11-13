@@ -154,7 +154,6 @@ def order(request):
             order = form.save(commit=False)
             order.staff = customer
             amount = order.order_quantity * order.name.price
-            print(amount)
             mpesa = requests.post("http://127.0.0.1:8000/mpesa/submit/", data={"phone_number": phone_number,"amount": amount})  
             messages.success(request, "Check Your Phone and Input your Mpesa PIN to make payment.")
             order.save()

@@ -16,6 +16,9 @@ class Profile(models.Model):
     id = models.AutoField(primary_key=True)
     staff = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     address = models.CharField(max_length=200, null=True)
+    location = models.CharField(max_length=200, null=True, default='Nairobi')
+    county = models.CharField(max_length=200, null=True, default="Nairobi")
+    building = models.CharField(max_length=200, null=True, default="Building")
     phone = models.CharField(max_length=20, null=True)
     image = models.ImageField(upload_to='images/profile', null=True)
     
